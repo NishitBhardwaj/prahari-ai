@@ -1,42 +1,61 @@
-# Prahari AI - Architecture Overview
+# Prahari AI — System Architecture
 
-## High-Level System Design
+Prahari AI utilizes a **Polyglot Persistence Architecture**, decoupling operational workloads from analytical, search, and graph traversal workloads. The entire stack is orchestrated for deployment on **Zoho Catalyst**.
 
-Prahari AI is a distributed, polyglot-persistence intelligence platform.
+## High-Level Architecture
 
-### Frontend (`/prahari-frontend`)
-- **Framework**: Next.js 15 (App Router)
-- **Styling**: Tailwind CSS v4, shadcn/ui
-- **State Management**: Zustand (Global UI state), React Query (Server state, optimistic updates)
-- **Mapping**: MapLibre GL JS, Deck.gl
-- **Graph Visualization**: Cytoscape.js
-- **Charts**: Apache ECharts
+```mermaid
+graph TD
+    %% Clients
+    UI[Next.js Frontend]
+    Mobile[React Native Field App]
 
-### Backend (`/prahari-backend`)
-- **Framework**: FastAPI (Python 3.12+)
-- **Architecture**: Clean Architecture (Routers -> Workflows -> Services -> Repositories -> Models)
-- **ORM**: SQLAlchemy (Async) + Alembic
+    %% Gateway
+    Gateway[Zoho Catalyst API Gateway]
 
-### Data Layer (Polyglot Persistence)
-1. **PostgreSQL / PostGIS (Primary Source of Truth)**
-   - Relational data: Users, Cases, Evidence, Tasks, Timelines.
-2. **Neo4j (Knowledge Graph)**
-   - Link analysis: Criminal networks, communication pathways (CDRs), financial transactions.
-3. **Qdrant (Vector Database)**
-   - Semantic search, RAG document retrieval, case similarity.
-4. **Zoho Catalyst Data Store / Stratus**
-   - Cloud backup, media storage (PDFs, Images, Video).
+    %% Backend Services (FastAPI)
+    subgraph FastAPI Backend Services
+        Core[Core API & Workflows]
+        Intelligence[Intelligence Engines]
+        DemoEngine[Simulation / Demo Engine]
+    end
 
-### Zoho Catalyst Integration
-- **AppSail**: Containerized hosting for Frontend (Node.js) and Backend (Python).
-- **Authentication**: JWT-based Catalyst Auth.
-- **Cache**: Ephemeral storage for dashboard metrics.
-- **Signals & Cron**: Background task execution (e.g., async Graph Sync, AI Scoring).
-- **QuickML**: ML Pipeline for risk scores and anomaly detection.
+    %% Data Layer
+    subgraph Polyglot Persistence Layer
+        PG[(PostgreSQL / PostGIS)]
+        N4J[(Neo4j Graph Database)]
+        QDR[(Qdrant Vector DB)]
+        Storage[(Catalyst Object Storage)]
+    end
 
-## Progressive FIR Workflow Architecture
-Instead of massive monolithic POST requests, Prahari utilizes a **Draft-Based Incremental Workflow**:
-1. `POST /cases/draft` creates an initial record.
-2. `PATCH /cases/{id}` autosaves core fields.
-3. Dedicated entity endpoints (`/victims`, `/accused`) attach linked data instantly.
-4. All actions produce `TimelineEvent` records for the Universal Timeline Engine.
+    %% Connections
+    UI -->|HTTPS/WSS| Gateway
+    Mobile -->|HTTPS| Gateway
+    Gateway --> Core
+    Gateway --> Intelligence
+    Gateway --> DemoEngine
+
+    Core --> PG
+    Core --> Storage
+    Intelligence --> N4J
+    Intelligence --> QDR
+
+    %% Sync
+    PG -.->|Change Data Capture / Events| N4J
+    PG -.->|Embeddings Sync| QDR
+```
+
+## Technology Stack
+
+1. **Frontend**: Next.js (React 19), TailwindCSS, Zustand
+2. **Visualizations**: MapLibre GL JS (Geospatial), Cytoscape.js (Graph), Apache ECharts (Analytics)
+3. **Backend**: FastAPI (Python 3.12), Pydantic, SQLAlchemy
+4. **Relational Database**: PostgreSQL (Operational state, RBAC, Core Entities)
+5. **Graph Database**: Neo4j (Link Analysis, Criminal Networks, Shortest Path)
+6. **Vector Database**: Qdrant (Semantic Search, AI RAG)
+7. **Cloud Infrastructure**: Zoho Catalyst (Serverless, AppSail, Object Storage)
+
+## Core Workflows
+
+- **FIR Registration**: The Progressive FIR Workflow saves drafts to PostgreSQL incrementally. Upon submission, a background task synchronizes the FIR entities into Neo4j nodes and Qdrant vectors.
+- **Simulation Engine**: Developed in Python, generates realistic synthetic cases spanning decades to ensure the system is evaluated under high-volume stress (100,000+ records).

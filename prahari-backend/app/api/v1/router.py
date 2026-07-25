@@ -15,6 +15,7 @@ from app.api.v1.media.router import router as media_router
 from app.api.v1.audit.router import router as audit_router
 from app.api.v1.tasks.router import router as tasks_router
 from app.api.v1.evidence.router import router as evidence_router
+from app.api.v1.demo import router as demo_router
 
 api_router = APIRouter()
 
@@ -29,3 +30,4 @@ api_router.include_router(media_router, prefix="/media", tags=["Media"])
 api_router.include_router(audit_router, prefix="/audit", tags=["Audit Trail"])
 api_router.include_router(tasks_router, prefix="/tasks", tags=["Investigation Tasks"])
 api_router.include_router(evidence_router, prefix="/evidence", tags=["Evidence Chain of Custody"])
+api_router.include_router(demo_router, prefix="/demo", tags=["Demo Mode"])
