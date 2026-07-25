@@ -1,0 +1,49 @@
+{
+  "status": "FAILED",
+  "score_percentage": 62.5,
+  "total_checks": 8,
+  "passed_checks": 5,
+  "failed_checks": 3,
+  "checks": [
+    {
+      "name": "Output Directories Exist",
+      "passed": false,
+      "details": "Missing: ['csv', 'neo4j', 'media', 'json']"
+    },
+    {
+      "name": "Cases JSON Validity",
+      "passed": false,
+      "details": "Failed to parse cases.json"
+    },
+    {
+      "name": "Media Files Integrity",
+      "passed": false,
+      "details": "Checked 0 media records. Missing: 0."
+    },
+    {
+      "name": "Primary Key Uniqueness",
+      "passed": true,
+      "details": "All PKs unique across tested tables."
+    },
+    {
+      "name": "Foreign Key Resolution",
+      "passed": true,
+      "details": "All FKs resolve to valid entities."
+    },
+    {
+      "name": "Neo4j Node/Edge Parity",
+      "passed": true,
+      "details": "Graph schema matches relational export."
+    },
+    {
+      "name": "Qdrant Vector Parity",
+      "passed": true,
+      "details": "Vector counts match narrative records."
+    },
+    {
+      "name": "Geospatial Boundaries",
+      "passed": true,
+      "details": "Coordinates verified within Karnataka boundaries."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "client": {
+    "source": "prahari-frontend"
+  },
+  "app_sail": {
+    "source": "prahari-backend"
+  }
+}

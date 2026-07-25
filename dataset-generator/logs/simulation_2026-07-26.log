@@ -1,1 +1,194 @@
 2026-07-26 02:08:19.549 | INFO     | __main__:generate_all:65 - Starting full pipeline execution...
+2026-07-26 02:08:23.912 | INFO     | orchestrator:__init__:52 - Orchestrator initialized with 17 engines
+2026-07-26 02:08:23.913 | INFO     | orchestrator:__init__:53 - Execution order: master → police → population → media → time → festival → weather → scenario → crime → behaviour → evidence → gang → communication → financial → investigation → narrative → export
+2026-07-26 02:08:23.913 | INFO     | orchestrator:run_all:146 - ============================================================
+2026-07-26 02:08:23.913 | INFO     | orchestrator:run_all:147 - CRIME SIMULATION LABORATORY — FULL PIPELINE EXECUTION
+2026-07-26 02:08:23.913 | INFO     | orchestrator:run_all:148 - ============================================================
+2026-07-26 02:08:23.913 | INFO     | orchestrator:run_all:149 - Seed: 42
+2026-07-26 02:08:23.913 | INFO     | orchestrator:run_all:150 - Scale: 1000 cases, 50000 population
+2026-07-26 02:08:23.914 | INFO     | orchestrator:run_all:151 - Years: 2020 - 2026
+2026-07-26 02:08:23.914 | INFO     | orchestrator:run_all:152 - 
+2026-07-26 02:08:23.914 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:08:23.914 | INFO     | orchestrator:run_all:172 - Running engine: master
+2026-07-26 02:08:23.914 | INFO     | engines.base_engine:run:195 - Engine 'master' starting...
+2026-07-26 02:08:23.914 | INFO     | engines.master_engine.engine:generate:43 - Generating master lookup tables...
+2026-07-26 02:08:24.102 | INFO     | engines.master_engine.engine:_generate_police_stations:265 - Generated 1376 police stations
+2026-07-26 02:08:24.128 | INFO     | engines.master_engine.engine:_generate_courts:341 - Generated 238 courts
+2026-07-26 02:08:24.227 | INFO     | engines.master_engine.engine:generate:103 - Master generation complete: 18 tables, 1990 total records
+2026-07-26 02:08:24.227 | INFO     | engines.base_engine:put:109 - DataStore: stored 'states' with 1 records
+2026-07-26 02:08:24.227 | INFO     | engines.base_engine:put:109 - DataStore: stored 'districts' with 31 records
+2026-07-26 02:08:24.227 | INFO     | engines.base_engine:put:109 - DataStore: stored 'taluks' with 111 records
+2026-07-26 02:08:24.227 | INFO     | engines.base_engine:put:109 - DataStore: stored 'unit_types' with 8 records
+2026-07-26 02:08:24.227 | INFO     | engines.base_engine:put:109 - DataStore: stored 'police_stations' with 1376 records
+2026-07-26 02:08:24.228 | INFO     | engines.base_engine:put:109 - DataStore: stored 'courts' with 238 records
+2026-07-26 02:08:24.228 | INFO     | engines.base_engine:put:109 - DataStore: stored 'ranks' with 13 records
+2026-07-26 02:08:24.228 | INFO     | engines.base_engine:put:109 - DataStore: stored 'designations' with 10 records
+2026-07-26 02:08:24.228 | INFO     | engines.base_engine:put:109 - DataStore: stored 'occupations' with 30 records
+2026-07-26 02:08:24.228 | INFO     | engines.base_engine:put:109 - DataStore: stored 'religions' with 7 records
+2026-07-26 02:08:24.228 | INFO     | engines.base_engine:put:109 - DataStore: stored 'castes' with 20 records
+2026-07-26 02:08:24.228 | INFO     | engines.base_engine:put:109 - DataStore: stored 'case_categories' with 4 records
+2026-07-26 02:08:24.229 | INFO     | engines.base_engine:put:109 - DataStore: stored 'case_statuses' with 12 records
+2026-07-26 02:08:24.229 | INFO     | engines.base_engine:put:109 - DataStore: stored 'gravity_offences' with 3 records
+2026-07-26 02:08:24.229 | INFO     | engines.base_engine:put:109 - DataStore: stored 'crime_heads' with 30 records
+2026-07-26 02:08:24.229 | INFO     | engines.base_engine:put:109 - DataStore: stored 'crime_sub_heads' with 46 records
+2026-07-26 02:08:24.229 | INFO     | engines.base_engine:put:109 - DataStore: stored 'acts' with 17 records
+2026-07-26 02:08:24.229 | INFO     | engines.base_engine:put:109 - DataStore: stored 'sections' with 33 records
+2026-07-26 02:08:24.230 | INFO     | engines.base_engine:run:222 - Engine 'master' completed: 1990 records across 18 tables in 0.32s
+2026-07-26 02:08:24.230 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:08:24.230 | INFO     | orchestrator:run_all:172 - Running engine: police
+2026-07-26 02:08:24.230 | INFO     | engines.base_engine:run:195 - Engine 'police' starting...
+2026-07-26 02:08:24.230 | INFO     | engines.police_engine:generate:27 - Generating police personnel...
+2026-07-26 02:08:25.215 | INFO     | engines.police_engine:generate:163 - Generated 3000 employees with 3000 postings
+2026-07-26 02:08:25.218 | INFO     | engines.base_engine:put:109 - DataStore: stored 'employees' with 3000 records
+2026-07-26 02:08:25.218 | INFO     | engines.base_engine:put:109 - DataStore: stored 'postings' with 3000 records
+2026-07-26 02:08:25.218 | INFO     | engines.base_engine:run:222 - Engine 'police' completed: 6000 records across 2 tables in 0.99s
+2026-07-26 02:08:25.218 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:08:25.218 | INFO     | orchestrator:run_all:172 - Running engine: population
+2026-07-26 02:08:25.219 | INFO     | engines.base_engine:run:195 - Engine 'population' starting...
+2026-07-26 02:08:25.219 | INFO     | engines.population_engine.engine:generate:40 - Generating synthetic population...
+2026-07-26 02:08:53.662 | INFO     | engines.population_engine.engine:generate:77 - Generated 50000 persons in 12000 households with 44151 family relationships
+2026-07-26 02:08:53.662 | INFO     | engines.base_engine:put:109 - DataStore: stored 'persons' with 50000 records
+2026-07-26 02:08:53.662 | INFO     | engines.base_engine:put:109 - DataStore: stored 'households' with 12000 records
+2026-07-26 02:08:53.663 | INFO     | engines.base_engine:put:109 - DataStore: stored 'family_relationships' with 44151 records
+2026-07-26 02:08:53.663 | INFO     | engines.base_engine:run:222 - Engine 'population' completed: 106151 records across 3 tables in 28.44s
+2026-07-26 02:08:53.663 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:08:53.663 | INFO     | orchestrator:run_all:172 - Running engine: media
+2026-07-26 02:08:53.663 | INFO     | engines.base_engine:run:195 - Engine 'media' starting...
+2026-07-26 02:08:53.663 | INFO     | engines.media_engine:generate:105 - Starting Media Asset Generation Engine...
+2026-07-26 02:08:53.666 | INFO     | engines.media_engine:generate:143 - Generating 1500 person profile images...
+2026-07-26 02:09:06.001 | INFO     | engines.media_engine:generate:151 - Generating 90 officer profile images...
+2026-07-26 02:09:07.046 | INFO     | engines.media_engine:generate:160 - Generating 20 vehicle images...
+2026-07-26 02:09:07.395 | INFO     | engines.media_engine:generate:166 - Generating evidence type images...
+2026-07-26 02:09:07.536 | INFO     | engines.media_engine:generate:172 - Generating crime scene images...
+2026-07-26 02:09:07.995 | INFO     | engines.media_engine:generate:178 - Generating CCTV frame images...
+2026-07-26 02:09:08.497 | INFO     | engines.media_engine:generate:184 - Generating synthetic fingerprint images...
+2026-07-26 02:09:08.632 | INFO     | engines.media_engine:generate:190 - Generating synthetic signature images...
+2026-07-26 02:09:08.734 | INFO     | engines.media_engine:generate:196 - Generating district crime heatmaps...
+2026-07-26 02:09:09.624 | INFO     | engines.media_engine:generate:204 - Generating PDF documents...
+2026-07-26 02:09:13.143 | INFO     | engines.media_engine:generate:218 - Media engine complete: 1672 actual media files generated, 50000 metadata-only records
+2026-07-26 02:09:13.147 | INFO     | engines.base_engine:put:109 - DataStore: stored 'media_assets' with 1672 records
+2026-07-26 02:09:13.147 | INFO     | engines.base_engine:put:109 - DataStore: stored 'media_metadata_all' with 51672 records
+2026-07-26 02:09:13.148 | INFO     | engines.base_engine:run:222 - Engine 'media' completed: 53344 records across 2 tables in 19.48s
+2026-07-26 02:09:13.148 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:09:13.148 | INFO     | orchestrator:run_all:172 - Running engine: time
+2026-07-26 02:09:13.148 | INFO     | engines.base_engine:run:195 - Engine 'time' starting...
+2026-07-26 02:09:13.148 | INFO     | engines.time_engine:generate:28 - Generating temporal context data...
+2026-07-26 02:09:13.186 | INFO     | engines.time_engine:generate:110 - Generated 2557 daily time context records (2020-2026)
+2026-07-26 02:09:13.188 | INFO     | engines.base_engine:put:109 - DataStore: stored 'time_context' with 2557 records
+2026-07-26 02:09:13.188 | INFO     | engines.base_engine:put:109 - DataStore: stored 'hourly_crime_distribution' with 24 records
+2026-07-26 02:09:13.188 | INFO     | engines.base_engine:run:222 - Engine 'time' completed: 2581 records across 2 tables in 0.04s
+2026-07-26 02:09:13.188 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:09:13.188 | INFO     | orchestrator:run_all:172 - Running engine: festival
+2026-07-26 02:09:13.188 | INFO     | engines.base_engine:run:195 - Engine 'festival' starting...
+2026-07-26 02:09:13.189 | INFO     | engines.festival_engine:generate:83 - Generating festival and event calendar...
+2026-07-26 02:09:16.267 | INFO     | engines.festival_engine:generate:143 - Generated 3121 festival/event entries
+2026-07-26 02:09:16.269 | INFO     | engines.base_engine:put:109 - DataStore: stored 'festival_calendar' with 3121 records
+2026-07-26 02:09:16.269 | INFO     | engines.base_engine:run:222 - Engine 'festival' completed: 3121 records across 1 tables in 3.08s
+2026-07-26 02:09:16.269 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:09:16.270 | INFO     | orchestrator:run_all:172 - Running engine: weather
+2026-07-26 02:09:16.270 | INFO     | engines.base_engine:run:195 - Engine 'weather' starting...
+2026-07-26 02:09:16.270 | INFO     | engines.weather_engine:generate:51 - Generating weather data...
+2026-07-26 02:09:19.484 | INFO     | engines.weather_engine:generate:147 - Generated 79267 weather records across 31 districts
+2026-07-26 02:09:19.508 | INFO     | engines.base_engine:put:109 - DataStore: stored 'weather_records' with 79267 records
+2026-07-26 02:09:19.508 | INFO     | engines.base_engine:run:222 - Engine 'weather' completed: 79267 records across 1 tables in 3.24s
+2026-07-26 02:09:19.509 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:09:19.509 | INFO     | orchestrator:run_all:172 - Running engine: scenario
+2026-07-26 02:09:19.509 | INFO     | engines.base_engine:run:195 - Engine 'scenario' starting...
+2026-07-26 02:09:19.509 | INFO     | engines.scenario_engine:generate:158 - Running scenario simulation engine...
+2026-07-26 02:18:47.801 | INFO     | __main__:generate_all:65 - Starting full pipeline execution...
+2026-07-26 02:18:49.067 | INFO     | orchestrator:__init__:52 - Orchestrator initialized with 17 engines
+2026-07-26 02:18:49.067 | INFO     | orchestrator:__init__:53 - Execution order: master → police → population → media → time → festival → weather → scenario → crime → behaviour → evidence → gang → communication → financial → investigation → narrative → export
+2026-07-26 02:18:49.067 | INFO     | orchestrator:run_all:146 - ============================================================
+2026-07-26 02:18:49.068 | INFO     | orchestrator:run_all:147 - CRIME SIMULATION LABORATORY — FULL PIPELINE EXECUTION
+2026-07-26 02:18:49.068 | INFO     | orchestrator:run_all:148 - ============================================================
+2026-07-26 02:18:49.068 | INFO     | orchestrator:run_all:149 - Seed: 42
+2026-07-26 02:18:49.068 | INFO     | orchestrator:run_all:150 - Scale: 1000 cases, 50000 population
+2026-07-26 02:18:49.068 | INFO     | orchestrator:run_all:151 - Years: 2020 - 2026
+2026-07-26 02:18:49.068 | INFO     | orchestrator:run_all:152 - 
+2026-07-26 02:18:49.068 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:18:49.068 | INFO     | orchestrator:run_all:172 - Running engine: master
+2026-07-26 02:18:49.068 | INFO     | engines.base_engine:run:195 - Engine 'master' starting...
+2026-07-26 02:18:49.068 | INFO     | engines.master_engine.engine:generate:43 - Generating master lookup tables...
+2026-07-26 02:18:49.227 | INFO     | engines.master_engine.engine:_generate_police_stations:265 - Generated 1376 police stations
+2026-07-26 02:18:49.263 | INFO     | engines.master_engine.engine:_generate_courts:341 - Generated 238 courts
+2026-07-26 02:18:49.355 | INFO     | engines.master_engine.engine:generate:103 - Master generation complete: 18 tables, 1990 total records
+2026-07-26 02:18:49.355 | INFO     | engines.base_engine:put:109 - DataStore: stored 'states' with 1 records
+2026-07-26 02:18:49.355 | INFO     | engines.base_engine:put:109 - DataStore: stored 'districts' with 31 records
+2026-07-26 02:18:49.355 | INFO     | engines.base_engine:put:109 - DataStore: stored 'taluks' with 111 records
+2026-07-26 02:18:49.355 | INFO     | engines.base_engine:put:109 - DataStore: stored 'unit_types' with 8 records
+2026-07-26 02:18:49.355 | INFO     | engines.base_engine:put:109 - DataStore: stored 'police_stations' with 1376 records
+2026-07-26 02:18:49.355 | INFO     | engines.base_engine:put:109 - DataStore: stored 'courts' with 238 records
+2026-07-26 02:18:49.355 | INFO     | engines.base_engine:put:109 - DataStore: stored 'ranks' with 13 records
+2026-07-26 02:18:49.355 | INFO     | engines.base_engine:put:109 - DataStore: stored 'designations' with 10 records
+2026-07-26 02:18:49.355 | INFO     | engines.base_engine:put:109 - DataStore: stored 'occupations' with 30 records
+2026-07-26 02:18:49.355 | INFO     | engines.base_engine:put:109 - DataStore: stored 'religions' with 7 records
+2026-07-26 02:18:49.356 | INFO     | engines.base_engine:put:109 - DataStore: stored 'castes' with 20 records
+2026-07-26 02:18:49.356 | INFO     | engines.base_engine:put:109 - DataStore: stored 'case_categories' with 4 records
+2026-07-26 02:18:49.356 | INFO     | engines.base_engine:put:109 - DataStore: stored 'case_statuses' with 12 records
+2026-07-26 02:18:49.356 | INFO     | engines.base_engine:put:109 - DataStore: stored 'gravity_offences' with 3 records
+2026-07-26 02:18:49.356 | INFO     | engines.base_engine:put:109 - DataStore: stored 'crime_heads' with 30 records
+2026-07-26 02:18:49.356 | INFO     | engines.base_engine:put:109 - DataStore: stored 'crime_sub_heads' with 46 records
+2026-07-26 02:18:49.356 | INFO     | engines.base_engine:put:109 - DataStore: stored 'acts' with 17 records
+2026-07-26 02:18:49.356 | INFO     | engines.base_engine:put:109 - DataStore: stored 'sections' with 33 records
+2026-07-26 02:18:49.356 | INFO     | engines.base_engine:run:222 - Engine 'master' completed: 1990 records across 18 tables in 0.29s
+2026-07-26 02:18:49.356 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:18:49.357 | INFO     | orchestrator:run_all:172 - Running engine: police
+2026-07-26 02:18:49.357 | INFO     | engines.base_engine:run:195 - Engine 'police' starting...
+2026-07-26 02:18:49.357 | INFO     | engines.police_engine:generate:27 - Generating police personnel...
+2026-07-26 02:18:50.280 | INFO     | engines.police_engine:generate:163 - Generated 3000 employees with 3000 postings
+2026-07-26 02:18:50.283 | INFO     | engines.base_engine:put:109 - DataStore: stored 'employees' with 3000 records
+2026-07-26 02:18:50.283 | INFO     | engines.base_engine:put:109 - DataStore: stored 'postings' with 3000 records
+2026-07-26 02:18:50.284 | INFO     | engines.base_engine:run:222 - Engine 'police' completed: 6000 records across 2 tables in 0.93s
+2026-07-26 02:18:50.284 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:18:50.284 | INFO     | orchestrator:run_all:172 - Running engine: population
+2026-07-26 02:18:50.284 | INFO     | engines.base_engine:run:195 - Engine 'population' starting...
+2026-07-26 02:18:50.284 | INFO     | engines.population_engine.engine:generate:40 - Generating synthetic population...
+2026-07-26 02:19:18.377 | INFO     | engines.population_engine.engine:generate:77 - Generated 50000 persons in 12000 households with 44151 family relationships
+2026-07-26 02:19:18.377 | INFO     | engines.base_engine:put:109 - DataStore: stored 'persons' with 50000 records
+2026-07-26 02:19:18.377 | INFO     | engines.base_engine:put:109 - DataStore: stored 'households' with 12000 records
+2026-07-26 02:19:18.377 | INFO     | engines.base_engine:put:109 - DataStore: stored 'family_relationships' with 44151 records
+2026-07-26 02:19:18.377 | INFO     | engines.base_engine:run:222 - Engine 'population' completed: 106151 records across 3 tables in 28.09s
+2026-07-26 02:19:18.377 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:19:18.378 | INFO     | orchestrator:run_all:172 - Running engine: media
+2026-07-26 02:19:18.378 | INFO     | engines.base_engine:run:195 - Engine 'media' starting...
+2026-07-26 02:19:18.378 | INFO     | engines.media_engine:generate:105 - Starting Media Asset Generation Engine...
+2026-07-26 02:19:18.381 | INFO     | engines.media_engine:generate:143 - Generating 1500 person profile images...
+2026-07-26 02:19:30.201 | INFO     | engines.media_engine:generate:151 - Generating 90 officer profile images...
+2026-07-26 02:19:30.917 | INFO     | engines.media_engine:generate:160 - Generating 20 vehicle images...
+2026-07-26 02:19:31.287 | INFO     | engines.media_engine:generate:166 - Generating evidence type images...
+2026-07-26 02:19:31.449 | INFO     | engines.media_engine:generate:172 - Generating crime scene images...
+2026-07-26 02:19:31.711 | INFO     | engines.media_engine:generate:178 - Generating CCTV frame images...
+2026-07-26 02:19:32.107 | INFO     | engines.media_engine:generate:184 - Generating synthetic fingerprint images...
+2026-07-26 02:19:32.265 | INFO     | engines.media_engine:generate:190 - Generating synthetic signature images...
+2026-07-26 02:19:32.301 | INFO     | engines.media_engine:generate:196 - Generating district crime heatmaps...
+2026-07-26 02:19:32.907 | INFO     | engines.media_engine:generate:204 - Generating PDF documents...
+2026-07-26 02:19:36.116 | INFO     | engines.media_engine:generate:218 - Media engine complete: 1672 actual media files generated, 50000 metadata-only records
+2026-07-26 02:19:36.118 | INFO     | engines.base_engine:put:109 - DataStore: stored 'media_assets' with 1672 records
+2026-07-26 02:19:36.118 | INFO     | engines.base_engine:put:109 - DataStore: stored 'media_metadata_all' with 51672 records
+2026-07-26 02:19:36.119 | INFO     | engines.base_engine:run:222 - Engine 'media' completed: 53344 records across 2 tables in 17.74s
+2026-07-26 02:19:36.119 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:19:36.119 | INFO     | orchestrator:run_all:172 - Running engine: time
+2026-07-26 02:19:36.119 | INFO     | engines.base_engine:run:195 - Engine 'time' starting...
+2026-07-26 02:19:36.119 | INFO     | engines.time_engine:generate:28 - Generating temporal context data...
+2026-07-26 02:19:36.147 | INFO     | engines.time_engine:generate:110 - Generated 2557 daily time context records (2020-2026)
+2026-07-26 02:19:36.149 | INFO     | engines.base_engine:put:109 - DataStore: stored 'time_context' with 2557 records
+2026-07-26 02:19:36.150 | INFO     | engines.base_engine:put:109 - DataStore: stored 'hourly_crime_distribution' with 24 records
+2026-07-26 02:19:36.150 | INFO     | engines.base_engine:run:222 - Engine 'time' completed: 2581 records across 2 tables in 0.03s
+2026-07-26 02:19:36.150 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:19:36.150 | INFO     | orchestrator:run_all:172 - Running engine: festival
+2026-07-26 02:19:36.150 | INFO     | engines.base_engine:run:195 - Engine 'festival' starting...
+2026-07-26 02:19:36.150 | INFO     | engines.festival_engine:generate:83 - Generating festival and event calendar...
+2026-07-26 02:19:38.662 | INFO     | engines.festival_engine:generate:143 - Generated 3121 festival/event entries
+2026-07-26 02:19:38.662 | INFO     | engines.base_engine:put:109 - DataStore: stored 'festival_calendar' with 3121 records
+2026-07-26 02:19:38.662 | INFO     | engines.base_engine:run:222 - Engine 'festival' completed: 3121 records across 1 tables in 2.51s
+2026-07-26 02:19:38.663 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:19:38.663 | INFO     | orchestrator:run_all:172 - Running engine: weather
+2026-07-26 02:19:38.663 | INFO     | engines.base_engine:run:195 - Engine 'weather' starting...
+2026-07-26 02:19:38.663 | INFO     | engines.weather_engine:generate:51 - Generating weather data...
+2026-07-26 02:19:41.529 | INFO     | engines.weather_engine:generate:147 - Generated 79267 weather records across 31 districts
+2026-07-26 02:19:41.547 | INFO     | engines.base_engine:put:109 - DataStore: stored 'weather_records' with 79267 records
+2026-07-26 02:19:41.547 | INFO     | engines.base_engine:run:222 - Engine 'weather' completed: 79267 records across 1 tables in 2.88s
+2026-07-26 02:19:41.547 | INFO     | orchestrator:run_all:171 - ────────────────────────────────────────
+2026-07-26 02:19:41.547 | INFO     | orchestrator:run_all:172 - Running engine: scenario
+2026-07-26 02:19:41.547 | INFO     | engines.base_engine:run:195 - Engine 'scenario' starting...
+2026-07-26 02:19:41.547 | INFO     | engines.scenario_engine:generate:158 - Running scenario simulation engine...
