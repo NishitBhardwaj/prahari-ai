@@ -1,0 +1,108 @@
+# ============================================
+# Karnataka Police Crime Simulation Laboratory
+# ============================================
+
+# ── Reproducibility ──
+seed: 42
+version: "1.0.0"
+
+# ── Time Span ──
+years:
+  start: 2020
+  end: 2026
+
+# ── Geography ──
+districts:
+  all: true
+
+# ── Scale (small for validation, then scale up) ──
+scale:
+  population: 50000
+  households: 12000
+  cases: 1000
+  victims: 1600
+  accused: 700
+  complainants: 1200
+  witnesses: 2000
+  employees: 3000
+  vehicles: 8000
+  gangs: 50
+  cctv_cameras: 500
+
+# ── Crime Distribution ──
+crime_distribution:
+  theft: 0.32
+  robbery: 0.06
+  burglary: 0.08
+  murder: 0.012
+  attempt_to_murder: 0.015
+  assault: 0.10
+  sexual_offence: 0.04
+  cyber_fraud: 0.10
+  upi_fraud: 0.04
+  cheating: 0.05
+  narcotics: 0.03
+  traffic_accident: 0.07
+  kidnapping: 0.015
+  arms_act: 0.008
+  domestic_violence: 0.04
+  other: 0.02
+
+# ── Case Type Distribution ──
+case_type_distribution:
+  FIR: 0.70
+  UDR: 0.15
+  ZeroFIR: 0.05
+  PAR: 0.10
+
+# ── Behavioural Parameters ──
+repeat_offender_rate: 0.18
+gang_probability: 0.08
+recidivism_rate: 0.35
+bail_grant_rate: 0.55
+conviction_rate: 0.28
+chargesheet_rate: 0.72
+
+# ── Cyber Crime Growth (year-over-year multiplier) ──
+cyber_crime_growth: 1.25
+
+# ── Environmental Effects ──
+festival_effect:
+  crowd_density_multiplier: 2.5
+  pickpocket_increase: 0.45
+  vehicle_theft_increase: 0.18
+  assault_increase: 0.08
+
+weather_effect:
+  heavy_rain:
+    accident_increase: 0.35
+    burglary_increase: 0.20
+    response_time_increase: 0.40
+  extreme_heat:
+    assault_increase: 0.15
+
+# ── Multi-Year Evolution ──
+evolution:
+  urbanization_rate: 0.03
+  cyber_crime_trend: "exponential"
+  vehicle_growth: 0.05
+  pandemic_years: [2020, 2021]
+  election_years: [2023, 2024]
+
+# ── Simulation ──
+simulation:
+  batch_size: 10000
+  parallel_engines: true
+  log_level: "INFO"
+
+# ── Export Formats ──
+exports:
+  csv: true
+  parquet: true
+  json: true
+  geojson: true
+  postgresql: true
+  postgis: true
+  neo4j: true
+  qdrant: true
+  elasticsearch: true
