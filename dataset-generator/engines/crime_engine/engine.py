@@ -114,7 +114,8 @@ class CrimeEngine(BaseEngine):
                         continue  # Skip if cyber mod is low (early years)
 
                     # Determine time of day
-                    hour_idx = int(self.rng.choice(24, p=hourly_dist["probability"].values))
+                    probs = hourly_dist["probability"].values
+                    hour_idx = int(self.rng.choice(24, p=probs / probs.sum()))
                     incident_time = f"{hour_idx:02d}:{self.rng.integers(0, 60):02d}"
 
                     # Find a sub-head

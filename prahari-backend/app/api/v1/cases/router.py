@@ -221,7 +221,7 @@ async def create_investigation_task(
     case_id: str,
     payload: dict,
     session: AsyncSession = Depends(get_async_session),
-    current_user=Depends(require_permissions(Permission.INVESTIGATION_WRITE)),
+    current_user=Depends(require_permissions(Permission.INVESTIGATION_MANAGE)),
 ):
     """Create a new task in the Investigation Workspace."""
     from app.db.postgres.models import InvestigationTask, TimelineEvent

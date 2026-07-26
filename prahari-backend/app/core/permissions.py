@@ -181,7 +181,7 @@ def require_permissions(*permissions: Permission):
                 )
         return current_user
 
-    return Depends(_check)
+    return _check
 
 
 def require_any_permission(*permissions: Permission):
@@ -196,4 +196,4 @@ def require_any_permission(*permissions: Permission):
             )
         return current_user
 
-    return Depends(_check)
+    return _check

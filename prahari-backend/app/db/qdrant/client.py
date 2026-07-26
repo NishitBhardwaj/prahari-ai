@@ -21,7 +21,8 @@ async def init_qdrant():
         api_key=settings.QDRANT_API_KEY or None,
     )
     # Ensure the collection exists
-    existing = [c.name for c in await _client.get_collections()]
+    collections_response = await _client.get_collections()
+    existing = [c.name for c in collections_response.collections]
     if settings.QDRANT_COLLECTION not in existing:
         await _client.create_collection(
             collection_name=settings.QDRANT_COLLECTION,

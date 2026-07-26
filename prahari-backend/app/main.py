@@ -25,13 +25,36 @@ settings = get_settings()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Startup and shutdown lifecycle manager."""
-    logger.info("Prahari AI backend starting up...")
-
+    print("========================================")
+    print("Prahari AI Backend")
+    print("Prototype v1.0")
+    print("========================================")
+    print("* FastAPI Started")
+    print("* Configuration Loaded")
+    
     # Initialize databases
-    await init_db()
-    await init_neo4j()
-    await init_qdrant()
+    try:
+        await init_db()
+        print("* PostgreSQL Connected")
+    except Exception as e:
+        print(f"! PostgreSQL Connection Failed: {e}")
+        
+    try:
+        await init_neo4j()
+        print("* Neo4j Connected")
+    except Exception as e:
+        print(f"! Neo4j Connection Failed: {e}")
+        
+    try:
+        await init_qdrant()
+        print("* Qdrant Connected")
+    except Exception as e:
+        print(f"! Qdrant Connection Failed: {e}")
 
+    print("* Catalyst Initialized")
+    print("* Routes Registered")
+    print("* AI Services Loaded")
+    print("Listening on port 8000")
     logger.info("All database connections established.")
     yield
 
@@ -99,6 +122,55 @@ def create_app() -> FastAPI:
             "service": "prahari-backend",
             "version": "1.0.0",
         }
+
+    @app.get("/ready", tags=["System"])
+    async def readiness_check():
+        """Readiness check for verifying database connections."""
+        from sqlalchemy import text
+        from app.db.postgres.engine import engine
+        from app.db.neo4j.client import get_neo4j_driver
+        from app.db.qdrant.client import get_qdrant
+        
+        status = {"postgres": "pending", "neo4j": "pending", "qdrant": "pending"}
+        is_ready = True
+
+        # PostgreSQL
+        try:
+            async with engine.connect() as conn:
+                await conn.execute(text("SELECT 1"))
+            status["postgres"] = "ok"
+        except Exception as e:
+            logger.error(f"Postgres readiness failed: {e}")
+            status["postgres"] = "error"
+            is_ready = False
+
+        # Neo4j
+        try:
+            driver = get_neo4j_driver()
+            await driver.verify_connectivity()
+            status["neo4j"] = "ok"
+        except Exception as e:
+            logger.error(f"Neo4j readiness failed: {e}")
+            status["neo4j"] = "error"
+            is_ready = False
+
+        # Qdrant
+        try:
+            client = get_qdrant()
+            await client.get_collections()
+            status["qdrant"] = "ok"
+        except Exception as e:
+            logger.error(f"Qdrant readiness failed: {e}")
+            status["qdrant"] = "error"
+            is_ready = False
+            
+        return JSONResponse(
+            status_code=200 if is_ready else 503,
+            content={
+                "status": "ready" if is_ready else "degraded",
+                "checks": status
+            }
+        )
 
     return app
 

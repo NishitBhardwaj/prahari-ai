@@ -45,7 +45,7 @@ class FinancialEngine(BaseEngine):
         financial_cases = cases[cases["crime_head_name"].isin(["Cyber Crime", "Cheating/Fraud", "Extortion"])]
         # We need the victims of these cases, but since victims are just IDs, let's create a pool
         # Actually we don't have victim person_ids easily available here unless we load victims table
-        victims_table = self.store.get("victims") if "victims" in self.store.data else pd.DataFrame()
+        victims_table = self.store.get("victims") if self.store.has("victims") else pd.DataFrame()
         victim_ids = victims_table["person_id"].tolist() if not victims_table.empty else []
         
         target_persons = list(set(accused_ids + victim_ids))

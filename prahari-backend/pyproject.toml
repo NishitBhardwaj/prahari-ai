@@ -41,7 +41,7 @@ dependencies = [
     # AI / ML
     "scikit-learn>=1.6.0",
     "xgboost>=2.1.0",
-    "shap>=0.46.0",
+    # "shap>=0.46.0", # Temporarily disabled due to Numba/NumPy 2 compatibility on Python 3.12+
     "numpy>=2.2.0",
     "pandas>=2.2.0",
 

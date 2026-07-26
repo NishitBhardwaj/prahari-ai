@@ -12,7 +12,7 @@ from app.db.postgres.models.gang import (  # noqa: F401
     CallDetailRecord, BankAccount, FinancialTransaction,
     NarrativeDocument, AuditLog,
 )
-from app.db.postgres.models.gang import Gang, GangMember  # noqa: F401
+
 from app.db.postgres.models.case_state_transition import CaseStateTransition, CaseState  # noqa: F401
 from app.db.postgres.models.timeline_event import TimelineEvent  # noqa: F401
 from app.db.postgres.models.investigation_task import InvestigationTask, TaskStatus, TaskPriority  # noqa: F401

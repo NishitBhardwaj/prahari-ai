@@ -52,7 +52,7 @@ async def update_task(
     task_id: str,
     payload: TaskUpdate,
     session: AsyncSession = Depends(get_async_session),
-    current_user=Depends(require_permissions(Permission.INVESTIGATION_WRITE)),
+    current_user=Depends(require_permissions(Permission.INVESTIGATION_MANAGE)),
 ):
     result = await session.execute(
         select(InvestigationTask).where(InvestigationTask.task_id == task_id)

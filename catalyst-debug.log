@@ -1,0 +1,21 @@
+[debug] [2026-07-26T16:02:51.815Z] : 
+[debug] [2026-07-26T16:02:51.817Z] : ----------------------------------------------------------------------
+[debug] [2026-07-26T16:02:51.818Z] : Command:      C:\Program Files\nodejs\node.exe C:\Users\user\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js deploy --only client --verbose
+[debug] [2026-07-26T16:02:51.818Z] : CLI Version:  1.27.0
+[debug] [2026-07-26T16:02:51.818Z] : Platform:     win32
+[debug] [2026-07-26T16:02:51.819Z] : Node Version: v24.16.0
+[debug] [2026-07-26T16:02:51.819Z] : Time:         Sun Jul 26 2026 21:32:51 GMT+0530 (India Standard Time)
+[debug] [2026-07-26T16:02:51.819Z] : ----------------------------------------------------------------------
+[debug] [2026-07-26T16:02:51.820Z] : 
+[debug] [2026-07-26T16:02:54.215Z] : > authorizing via signed-in user option
+[debug] [2026-07-26T16:02:54.220Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.functions.ALL","ZohoCatalyst.webapp.ALL","ZohoCatalyst.appsail.Update"]
+[debug] [2026-07-26T16:02:54.403Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/52889000000013049 
+
+[debug] [2026-07-26T16:02:54.803Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Sun, 26 Jul 2026 16:02:54 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-07-26T16:02:54.814Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/52889000000013049/environment 
+
+[debug] [2026-07-26T16:02:54.898Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Sun, 26 Jul 2026 16:02:54 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+

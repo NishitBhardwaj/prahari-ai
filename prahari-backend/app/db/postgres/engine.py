@@ -40,10 +40,9 @@ async def init_db():
         async with engine.begin() as conn:
             # Import all models to ensure they're registered with Base.metadata
             from app.db.postgres.models import (  # noqa: F401
-                user, case, person, accused, victim, witness,
-                evidence, investigation, chargesheet, court,
-                vehicle, device, cdr, transaction, narrative, audit_log,
-                station, district, gang
+                user, case, person, accused, evidence, chargesheet,
+                station, gang, case_relationship, case_state_transition,
+                evidence_version, investigation_task, timeline_event
             )
             await conn.run_sync(Base.metadata.create_all)
             logger.info("Database tables created/verified.")

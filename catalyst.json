@@ -4,5 +4,11 @@
   },
   "app_sail": {
     "source": "prahari-backend"
-  }
+  },
+  "appsail": [
+    {
+      "source": "docker://prahari-backend:latest",
+      "name": "prahari-backend"
+    }
+  ]
 }

@@ -35,8 +35,8 @@ class ExportEngine(BaseEngine):
             return {}
 
         # Output paths
-        csv_dir = Path(self.config.output_dir) / "csv"
-        json_dir = Path(self.config.output_dir) / "json"
+        csv_dir = self.output_dir.parent / "csv"
+        json_dir = self.output_dir.parent / "json"
         
         csv_dir.mkdir(parents=True, exist_ok=True)
         json_dir.mkdir(parents=True, exist_ok=True)
@@ -81,7 +81,7 @@ class ExportEngine(BaseEngine):
                 self.logger.info(f"Exported knowledge_graph_edges: {len(graph_df)} edges")
 
         # Create AI Training Exports (Parquet)
-        training_dir = Path(self.config.output_dir) / "training"
+        training_dir = self.output_dir.parent / "training"
         training_dir.mkdir(parents=True, exist_ok=True)
         
         try:
@@ -95,7 +95,7 @@ class ExportEngine(BaseEngine):
         except Exception as e:
             self.logger.error(f"Failed to generate quality report: {e}")
 
-        self.logger.info(f"Export complete: {exported_count} tables, {total_rows} total rows dumped to {self.config.output_dir}.")
+        self.logger.info(f"Export complete: {exported_count} tables, {total_rows} total rows dumped to {self.output_dir.parent}.")
 
         return {}
 
@@ -122,7 +122,7 @@ class ExportEngine(BaseEngine):
 
     def _generate_quality_report(self, tables: List[str], total_rows: int):
         """Generate a markdown report with dataset statistics."""
-        report_dir = Path(self.config.output_dir) / "reports"
+        report_dir = self.output_dir.parent / "reports"
         report_dir.mkdir(parents=True, exist_ok=True)
         
         def safe_len(tname):

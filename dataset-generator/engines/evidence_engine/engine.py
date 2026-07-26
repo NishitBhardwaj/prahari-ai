@@ -48,8 +48,6 @@ class EvidenceEngine(BaseEngine):
             
             # Not all cases have recovered evidence
             if self.rng.random() > 0.6:
-                # Edge linking evidence to case
-                self.store.add_edge(evd_id, "COLLECTED_IN", case_id, {"type": e_type})
                 continue
 
             # Determine type of evidence based on crime
@@ -78,6 +76,9 @@ class EvidenceEngine(BaseEngine):
                 "chain_of_custody_status": "Secure",
                 "media_id": media_id
             })
+
+            # Edge linking evidence to case
+            self.store.add_edge(evd_id, "COLLECTED_IN", case_id, {"type": e_type})
 
             # Generate Forensic Report for certain types
             if e_type in ["Biological", "Digital", "Ballistics"]:

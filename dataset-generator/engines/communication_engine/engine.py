@@ -46,6 +46,7 @@ class CommunicationEngine(BaseEngine):
         
         # Create devices
         device_map = {}
+        person_devices = {}
         for _, row in accused_pop.iterrows():
             pid = row["person_id"]
             phone = row.get("phone_primary", "")
@@ -167,4 +168,4 @@ class CommunicationEngine(BaseEngine):
         })
         
         # Graph Edge: CALLS
-        self.store.add_edge(caller_id, "CALLS", receiver_id, {"timestamp": call_time.isoformat()})
+        self.store.add_edge(caller, "CALLS", receiver, {"timestamp": call_time.isoformat()})

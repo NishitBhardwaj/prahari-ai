@@ -63,7 +63,7 @@ async def add_evidence(
     case_id: str,
     payload: EvidenceCreate,
     session: AsyncSession = Depends(get_async_session),
-    current_user=Depends(require_permissions(Permission.INVESTIGATION_WRITE)),
+    current_user=Depends(require_permissions(Permission.INVESTIGATION_MANAGE)),
 ):
     """Logs a new piece of evidence and adds a timeline event."""
     evidence_id = f"EVD_{uuid.uuid4().hex[:12]}"
@@ -108,7 +108,7 @@ async def upload_evidence_version(
     file: UploadFile = File(...),
     remarks: str = Form(None),
     session: AsyncSession = Depends(get_async_session),
-    current_user=Depends(require_permissions(Permission.INVESTIGATION_WRITE)),
+    current_user=Depends(require_permissions(Permission.INVESTIGATION_MANAGE)),
 ):
     """Chain of Custody: Append a new version of the file (e.g. enhanced image, signed report)."""
     result = await session.execute(select(Evidence).where(Evidence.evidence_id == evidence_id))

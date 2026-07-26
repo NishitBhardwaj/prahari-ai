@@ -1,7 +1,5 @@
-"""
-Dockerfile — Prahari AI Backend (FastAPI)
-Deployed to Zoho Catalyst AppSail
-"""
+# Dockerfile — Prahari AI Backend (FastAPI)
+# Deployed to Zoho Catalyst AppSail
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -19,6 +17,7 @@ RUN pip install --no-cache-dir -e .
 
 # Copy application code
 COPY app/ ./app/
+COPY run.py .
 
 # Run with uvicorn
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4"]
